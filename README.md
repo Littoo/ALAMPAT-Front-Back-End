@@ -1,18 +1,17 @@
 # Frontend
 
-**ALAMPAT**
-***
+## ALAMPAT
+
 Alampat is a consumer-to-consumer (C2C) e-commerce application that aims to develop an online marketplace for handmade goods, art merchandise, and art commission services (i.e., customizations). 
-***
-**Tech Stack**\
+
+## Tech Stack
 Framework: Angular\
-Frontend: Angular\
+Frontend: HTML,JavaScript,TypeScript,Angular\
 Backend: NodeJS\
 Database: MongoDB
-***
+
 &copy; Team Wintergreen: Dable Casey Gwyn, Marimon Jaira Loi, Ocampo Carl Josiah, Reyes Carl David, Tagalog Earl John
 
-================
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Development server

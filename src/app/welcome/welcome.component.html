@@ -1,11 +1,64 @@
-<section class="hero is-primary is-medium is-fullheight">
+<style>
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  .card svg.material-icons path {
+    fill: #ddeee7;
+  }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .card {
+    border-radius: 20px;
+    background-color: #d14734 ;
+    height: 35px;
+    width: 130px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: #c46c0c ;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+
+
+</style>
+
+<section class="hero is-success is-fullheight">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item">
-              <img src="src/alampat-logo.png" alt="Logo">
+              <img src="src\alampat-logo.png" alt="logo">
             </a>
             <span class="navbar-burger" data-target="navbarMenuHeroA">
               <span></span>
@@ -40,33 +93,65 @@
   
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
-      <div class="container has-text-centered">
-        <p class="title">
+      <div class="container has-text-centered has-text-weight-bold">
+        <p class="title is-size-1 is-family-primary">
           Welcome to ALAMPAT!
         </p>
-        <p class="subtitle">
-          Your local source of arts and crafts.
+        <p class="subtitle is-italic">
+          Where art flows from the heart.
         </p>
       </div>
     </div>
-    <!-- Sign up form -->
-    <form class="box">
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-            <input class="input" type="email" placeholder="e.g. alex@example.com">
-            </div>
-        </div>
+    
+ 
+    
 
-        <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-            <input class="input" type="password" placeholder="********">
+    <!-- Login form -->
+    <div class = "columns is-mobile is-centered">
+      
+      <form class="box" style="width: 450px;">
+          <div class="field">
+              <label class="label ">Email</label>
+              <div class="control has-icons-left">
+              <input class="input" type="email" placeholder="e.g. alex@example.com">
+              
             </div>
-        </div>
+          </div>
 
-        <button class="button is-primary">Sign in</button>
-    </form>
+          <div class="field">
+              <label class="label">Password</label>
+              <div class="control">
+              <input class="input" type="password" placeholder="********">
+              </div>
+          </div>
+
+       
+          <div class="field is-grouped is-grouped-right">
+            <p class="control">
+              <a class="button is-primary is-hovered is-rounded">
+                Login
+              </a>
+            </p>
+          </div>
+      </form>
+    </div>
+
+    <!-- Sign-up -->
+    <!-- Sign up button-->
+    <div class="card-container">
+      <p class="subtitle is-5 has-text-centered">
+        Don't have an account yet?
+      </p>
+      <a class="card" target="_blank" rel="noopener" >
+
+        <span>Sign-up</span>
+  
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>   
+
+      </a>
+    </div>
+
+
 
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">

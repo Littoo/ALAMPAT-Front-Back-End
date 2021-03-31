@@ -27,7 +27,9 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/logo.png",
-              "src/assets/alampat.ico"
+              "src/assets/alampat.ico",
+              "src/assets/person-sharp.svg",
+              "src/assets/people-sharp.svg"
             ],
             "styles": [
               "node_modules/bulma/css/bulma.css",

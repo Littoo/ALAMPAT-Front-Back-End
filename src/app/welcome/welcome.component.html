@@ -54,7 +54,10 @@
         background-size:  cover;
 
  }
-
+span.spaces{
+  padding-left:5px;
+  padding-right:10px;
+}
 
 
 </style>
@@ -122,7 +125,7 @@
   
 <!-- Login form -->
 <div class="container has-text-centered">
-  <p class="title ">
+  <p class="title is-size-3 is-family-primary has-text-success-dark ">
     Log In
   </p>
   <span> </span>
@@ -150,7 +153,7 @@
 
       <div class="field is-grouped is-grouped-right">
         <p class="control">
-          <a class="button is-primary is-hovered is-rounded">
+          <a class="button is-primary is-hovered is-rounded is-success is-outlined">
             LOG IN
           </a>
         </p>
@@ -163,21 +166,66 @@
 <!-- Sign-up button-->
 
 <div class="card-container">
-  <p class="subtitle is-5 has-text-centered">
-    Don't have an account yet?
-  </p>
-  <a class="card" target="_blank" rel="noopener" >
-
-    <span>Sign Up</span>
-
-    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>   
-
-  </a>
+  <span class = "spaces"><p class="subtitle is-10 has-text-centered">
+    Don't have an account yet?    
+  </p></span>
+  <button class="button is-small button is-primary is-success is-outlined">Sign-up</button>
 </div>
-
 <!-- footer-->
 <footer class="footer">
   <div class="container has-text-right">
+    <div class="column is-4"></div>
       <a > </a><strong>ALAMPAT </strong> <a >© 2021 Wintergreen</a>
   </div>
 </footer>
+
+<!-- Registration Modal -->
+<div class="modal"> <!-- place is-active beside the word modal to see modal-->
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Registration</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <button class="button is-primary is-outlined">Seller</button> &nbsp;&nbsp;&nbsp;
+      <button class="button is-primary is-outlined">Buyer</button>
+      <div class="column is-4"></div>
+      <div class="field">
+        <label class="label ">Name</label>
+        <div class="control">
+        <input class="input" type="name" placeholder="e.g. Han Jisung">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label ">Email</label>
+        <div class="control">
+        <input class="input" type="email" placeholder="e.g. erlito@example.com">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label ">Password</label>
+        <div class="control">
+        <input class="input" type="password" placeholder="*******">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label ">Phone Number</label>
+        <div class="control">
+        <input class="input" type="phone number" placeholder="e.g. +63912345678 / 09123456789">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label ">Address</label>
+        <div class="control">
+        <input class="input" type="address" placeholder="e.g. Street No., Barangay, Town / Municiplaity, City, Province, Country">
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-small is-success is-outlined">Register</button>
+      <button class="button is-small is-danger is-outlined">Cancel</button>
+    </footer>
+  </div>
+</div>

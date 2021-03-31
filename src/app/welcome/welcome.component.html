@@ -47,41 +47,49 @@
     margin-left: 60px;
   }
 
+  .bg-img { 
+        background-position: center center;
+        background-repeat:  no-repeat;
+        background-attachment: flex;
+        background-size:  cover;
+
+ }
+
 
 
 </style>
 
-<section class="hero is-success is-fullheight">
+<section class="hero is-halfheight">
     <!-- Hero head: will stick at the top -->
    <div class="hero-head">
-      <div class="container">
+      <nav class="navbar">
+        <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item">
-              <img src="assets/alampat.ico" alt="hakdog" width="28" height="160">
+              <img src="assets/alampat-icon.ico" alt="hakdog" width="29" >
             </a>
-            <span class="navbar-burger" data-target="navbarMenuHeroA">
-              <span></span>
-              <span></span>
-              <span></span>
+            <span class="navbar-item">
+              ALAMPAT
             </span>
-          </div>
-         <!-- <div id="navbarMenuHeroA" class="navbar-menu">
+            <span class="navbar-burger" data-target="navbarMenuHeroA">
+              <span> </span>
+              <span></span>
+              <span></span>
+            </span> 
+          </div> 
+          <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
               <a class="navbar-item is-active">
-                Home
+                Log In
               </a>
               <a class="navbar-item">
-                Examples
+                Sign Up
               </a>
-              <a class="navbar-item">
-                Documentation
-              </a>
-              <span class="navbar-item">
-                
-              </span>
             </div>
-          </div>-->
+          </div>
         </div>
+      </nav>
+      
     </div>
 
     <!-- Hero content: will be in the middle -->
@@ -90,72 +98,86 @@
         <p class="title is-size-1 is-family-primary">
           Welcome to
         </p>
-        <div class="hero-body">
-          <div class="container has-text-centered has-text-weight-bold">
-            <figure class="image is has-ratio">
-              <img src="assets/logo.png">
+        
+            <figure class="image has-ratio">
+              <img src="assets/alogo.png">
             </figure>
-          </div>
-        </div>  
+        
         <p class="subtitle is-italic">
-          Where art flows from the heart.
+          "Where art flows from the heart."
         </p>
       </div>
     </div>
 
-    <!-- Login form -->
-    <div class = "columns is-mobile is-centered">
-      
-      <form class="box" style="width: 450px;">
-          <div class="field">
-              <label class="label ">Email</label>
-              <div class="control has-icons-left">
-              <input class="input" type="email" placeholder="e.g. alex@example.com">
-              
-            </div>
-          </div>
 
-          <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-              <input class="input" type="password" placeholder="********">
-              </div>
-          </div>
+  </section> 
 
-          <div class="field is-grouped is-grouped-right">
-            <p class="control">
-              <a class="button is-primary is-hovered is-rounded">
-                Login
-              </a>
-            </p>
-          </div>
-      </form>
-    </div>
 
-    <!-- Sign-up -->
-    <!-- Sign up button-->
-    <div class="card-container">
-      <p class="subtitle is-5 has-text-centered">
-        Don't have an account yet?
-      </p>
-      <a class="card" target="_blank" rel="noopener" >
 
-        <span>Sign-up</span>
+
+<section class="background-image">
+
   
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>   
+    <img src="assets/bg.png">
+  
+<!-- Login form -->
+<div class="container has-text-centered">
+  <p class="title ">
+    Log In
+  </p>
+  <span> </span>
+  <span></span>
+  <span></span>
+</div> 
 
-      </a>
-    </div>
-
-
-    <!-- Hero footer: will stick at the bottom -->
-    <div class="hero-foot">
-      <nav class="tabs">
-        <div class="container">
-          <ul>
-            <li><a>© 2021 Wintergreen</a></li>
-          </ul>
+<div class = "columns is-mobile is-centered">
+ 
+  <form class="box" style="width: 450px">
+      <div class="field">
+          <label class="label ">Email</label>
+          <div class="control">
+          <input class="input" type="email" placeholder="e.g. alex@example.com">
+          
         </div>
-      </nav>
-    </div>
-  </section>
+      </div>
+
+      <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+          <input class="input" type="password" placeholder="********">
+          </div>
+      </div>
+
+      <div class="field is-grouped is-grouped-right">
+        <p class="control">
+          <a class="button is-primary is-hovered is-rounded">
+            LOG IN
+          </a>
+        </p>
+      </div>
+  </form>
+</div>
+
+</section>
+
+<!-- Sign-up button-->
+
+<div class="card-container">
+  <p class="subtitle is-5 has-text-centered">
+    Don't have an account yet?
+  </p>
+  <a class="card" target="_blank" rel="noopener" >
+
+    <span>Sign Up</span>
+
+    <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>   
+
+  </a>
+</div>
+
+<!-- footer-->
+<footer class="footer">
+  <div class="container has-text-right">
+      <a > </a><strong>ALAMPAT </strong> <a >© 2021 Wintergreen</a>
+  </div>
+</footer>

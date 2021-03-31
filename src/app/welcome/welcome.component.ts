@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  
+  showSignUp: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  onClickSignUp = () => {
+    this.showSignUp = !this.showSignUp;
+  }
+  onClickExit = () => {
+    this.onClickSignUp();
+  }
 }

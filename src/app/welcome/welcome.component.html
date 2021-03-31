@@ -85,7 +85,7 @@ span.spaces{
               <a class="navbar-item is-active">
                 Log In
               </a>
-              <a class="navbar-item">
+              <a (click)="onClickSignUp()" class="navbar-item">
                 Sign Up
               </a>
             </div>
@@ -169,7 +169,7 @@ span.spaces{
   <span class = "spaces"><p class="subtitle is-10 has-text-centered">
     Don't have an account yet?    
   </p></span>
-  <button class="button is-small button is-primary is-success is-outlined">Sign-up</button>
+  <button (click)="onClickSignUp()" class="button is-small button is-primary is-success is-outlined ">Sign-up</button>
 </div>
 <!-- footer-->
 <footer class="footer">
@@ -180,12 +180,12 @@ span.spaces{
 </footer>
 
 <!-- Registration Modal -->
-<div class="modal"> <!-- place is-active beside the word modal to see modal-->
+<div class="modal" [ngClass]="showSignUp ? 'is-active' : ''">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">Registration</p>
-      <button class="delete" aria-label="close"></button>
+      <button (click)="onClickSignUp()" class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
       <!-- Content ... -->

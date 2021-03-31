@@ -1,13 +1,8 @@
 <style>
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
+  html {
+  scroll-behavior: smooth;
   }
 
-  .card svg.material-icons path {
-    fill: #ddeee7;
-  }
   .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -15,169 +10,118 @@
     margin-top: 30px;
   }
 
-  .card {
-    border-radius: 20px;
-    background-color: #d14734 ;
-    height: 35px;
-    width: 130px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
+  .span-spaces{
+    padding-left:5px;
+    padding-right:10px;
   }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: #c46c0c ;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  .bg-img { 
-        background-position: center center;
-        background-repeat:  no-repeat;
-        background-attachment: flex;
-        background-size:  cover;
-
- }
-span.spaces{
-  padding-left:5px;
-  padding-right:10px;
-}
-
-
 </style>
 
 <section class="hero is-halfheight">
-    <!-- Hero head: will stick at the top -->
-   <div class="hero-head">
-      <nav class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-              <img src="assets/alampat-icon.ico" alt="hakdog" width="29" >
-            </a>
-            <span class="navbar-item">
-              ALAMPAT
-            </span>
-            <span class="navbar-burger" data-target="navbarMenuHeroA">
-              <span> </span>
-              <span></span>
-              <span></span>
-            </span> 
-          </div> 
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end">
-              <a class="navbar-item is-active">
-                Log In
-              </a>
-              <a (click)="onClickSignUp()" class="navbar-item">
-                Sign Up
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-      
-    </div>
-
-    <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
-      <div class="container has-text-centered has-text-weight-bold">
-        <p class="title is-size-1 is-family-primary">
-          Welcome to
-        </p>
-        
-            <figure class="image has-ratio">
-              <img src="assets/alogo.png">
-            </figure>
-        
-        <p class="subtitle is-italic">
-          "Where art flows from the heart."
-        </p>
-      </div>
-    </div>
-
-
-  </section> 
-
-
-
-
-<section class="background-image">
-
-  
-    <img src="assets/bg.png">
-  
-<!-- Login form -->
-<div class="container has-text-centered">
-  <p class="title is-size-3 is-family-primary has-text-success-dark ">
-    Log In
-  </p>
-  <span> </span>
-  <span></span>
-  <span></span>
-</div> 
-
-<div class = "columns is-mobile is-centered">
- 
-  <form class="box" style="width: 450px">
-      <div class="field">
-          <label class="label ">Email</label>
-          <div class="control">
-          <input class="input" type="email" placeholder="e.g. alex@example.com">
-          
-        </div>
-      </div>
-
-      <div class="field">
-          <label class="label">Password</label>
-          <div class="control">
-          <input class="input" type="password" placeholder="********">
-          </div>
-      </div>
-
-      <div class="field is-grouped is-grouped-right">
-        <p class="control">
-          <a class="button is-primary is-hovered is-rounded is-success is-outlined">
-            LOG IN
+  <!-- Navigation bar header -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="assets/alampat-icon.ico" alt="hakdog" width="29" >
           </a>
-        </p>
+          <span class="navbar-item">
+            ALAMPAT
+          </span>
+          <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span> </span>
+            <span></span>
+            <span></span>
+          </span> 
+        </div> 
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="#login" class="navbar-item is-active">
+              Log In
+            </a>
+            <a (click)="onClickSignUp()" class="navbar-item">
+              Sign Up
+            </a>
+          </div>
+        </div>
       </div>
-  </form>
+    </nav>
+    
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body" id="alampat">
+    <div class="container has-text-centered has-text-weight-bold">
+      <p class="title is-size-1 is-family-primary">
+        Welcome to
+      </p>
+      
+      <figure class="image has-ratio">
+        <img src="assets/alogo.png">
+      </figure>
+      
+      <p class="subtitle is-italic">
+        "Where art flows from the heart."
+      </p>
+    </div>
+  </div>
+
+</section> 
+
+<!-- Wave bg-->
+<div class="background-image">
+  <img src="assets/bg.png">
 </div>
+
+<!-- Login form -->
+<section>
+  <div class="container has-text-centered" id="login">
+    <p class="title is-size-3 is-family-primary has-text-success-dark ">
+      Log In
+    </p>
+    <span> </span>
+    <span></span>
+    <span></span>
+  </div> 
+
+  <div class = "columns is-mobile is-centered">
+  
+    <form class="box" style="width: 450px">
+        <div class="field">
+            <label class="label ">Email</label>
+            <div class="control">
+            <input class="input" type="email" placeholder="e.g. erlito@example.com">
+            
+          </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control">
+            <input class="input" type="password" placeholder="********">
+            </div>
+        </div>
+
+        <div class="field is-grouped is-grouped-right">
+          <p class="control">
+            <a class="button is-hovered is-rounded is-success is-outlined">
+              LOG IN
+            </a>
+          </p>
+        </div>
+    </form>
+  </div>
 
 </section>
 
-<!-- Sign-up button-->
+<!-- Sign Up button-->
 
 <div class="card-container">
-  <span class = "spaces"><p class="subtitle is-10 has-text-centered">
+  <span class = "span-spaces"><p class="subtitle is-10 has-text-centered">
     Don't have an account yet?    
   </p></span>
-  <button (click)="onClickSignUp()" class="button is-small button is-primary is-success is-outlined ">Sign-up</button>
+  <button (click)="onClickSignUp()" class="button is-small button is-success is-outlined ">Sign Up</button>
 </div>
-<!-- footer-->
-<footer class="footer">
-  <div class="container has-text-right">
-    <div class="column is-4"></div>
-      <a > </a><strong>ALAMPAT </strong> <a >© 2021 Wintergreen</a>
-  </div>
-</footer>
 
 <!-- Registration Modal -->
 <div class="modal" [ngClass]="showSignUp ? 'is-active' : ''">
@@ -189,8 +133,14 @@ span.spaces{
     </header>
     <section class="modal-card-body">
       <!-- Content ... -->
-      <button class="button is-primary is-outlined">Seller</button> &nbsp;&nbsp;&nbsp;
-      <button class="button is-primary is-outlined">Buyer</button>
+      <label class="label">Choose Account Type:</label>
+      <div class="field is-grouped is-grouped-centered">
+        <p class="control">
+          <button class="button is-info is-outlined ">Seller</button> &nbsp;&nbsp;&nbsp;
+          <button class="button is-danger is-outlined ">Buyer</button>
+        </p>
+      </div>
+
       <div class="column is-4"></div>
       <div class="field">
         <label class="label ">Name</label>
@@ -198,34 +148,44 @@ span.spaces{
         <input class="input" type="name" placeholder="e.g. Han Jisung">
         </div>
       </div>
+
       <div class="field">
         <label class="label ">Email</label>
         <div class="control">
         <input class="input" type="email" placeholder="e.g. erlito@example.com">
         </div>
       </div>
+
       <div class="field">
         <label class="label ">Password</label>
         <div class="control">
         <input class="input" type="password" placeholder="*******">
         </div>
       </div>
+
       <div class="field">
         <label class="label ">Phone Number</label>
         <div class="control">
         <input class="input" type="phone number" placeholder="e.g. +63912345678 / 09123456789">
         </div>
       </div>
+
       <div class="field">
         <label class="label ">Address</label>
         <div class="control">
         <input class="input" type="address" placeholder="e.g. Street No., Barangay, Town / Municiplaity, City, Province, Country">
         </div>
       </div>
+
     </section>
+    
     <footer class="modal-card-foot">
+
       <button class="button is-small is-success is-outlined">Register</button>
-      <button class="button is-small is-danger is-outlined">Cancel</button>
+      <button (click)="onClickExit()" class="button is-small is-danger is-outlined">Cancel</button>
+      
     </footer>
   </div>
 </div>
+
+<app-footer></app-footer>

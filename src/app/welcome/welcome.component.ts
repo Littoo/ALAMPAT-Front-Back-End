@@ -17,4 +17,5 @@ export class WelcomeComponent implements OnInit {
   onClickExit = () => {
     this.onClickSignUp();
   }
+
 }

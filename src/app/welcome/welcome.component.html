@@ -36,7 +36,7 @@
         </div> 
         <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
-            <a href="#login" class="navbar-item is-active">
+            <a href="#login" class="navbar-item">
               Log In
             </a>
             <a (click)="onClickSignUp()" class="navbar-item">
@@ -122,6 +122,8 @@
   </p></span>
   <button (click)="onClickSignUp()" class="button is-small button is-success is-outlined ">Sign Up</button>
 </div>
+<div class="column is-4"></div>
+
 
 <!-- Registration Modal -->
 <div class="modal" [ngClass]="showSignUp ? 'is-active' : ''">

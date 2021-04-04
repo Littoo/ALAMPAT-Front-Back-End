@@ -1,6 +1,6 @@
 <style>
   html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
   }
 
   .card-container {
@@ -10,9 +10,9 @@
     margin-top: 30px;
   }
 
-  .span-spaces{
-    padding-left:5px;
-    padding-right:10px;
+  .span-spaces {
+    padding-left: 5px;
+    padding-right: 10px;
   }
 </style>
 
@@ -23,7 +23,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
-            <img src="assets/alampat-icon.ico" alt="hakdog" width="29" >
+            <img src="assets/alampat-icon.ico" alt="hakdog" width="29">
           </a>
           <span class="navbar-item">
             ALAMPAT
@@ -32,8 +32,8 @@
             <span> </span>
             <span></span>
             <span></span>
-          </span> 
-        </div> 
+          </span>
+        </div>
         <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
             <a href="#login" class="navbar-item">
@@ -46,7 +46,7 @@
         </div>
       </div>
     </nav>
-    
+
   </div>
 
   <!-- Hero content: will be in the middle -->
@@ -55,18 +55,18 @@
       <p class="title is-size-1 is-family-primary">
         Welcome to
       </p>
-      
+
       <figure class="image has-ratio">
         <img src="assets/alogo.png">
       </figure>
-      
+
       <p class="subtitle is-italic">
         "Where art flows from the heart."
       </p>
     </div>
   </div>
 
-</section> 
+</section>
 
 <!-- Wave bg-->
 <div class="background-image">
@@ -82,33 +82,33 @@
     <span> </span>
     <span></span>
     <span></span>
-  </div> 
+  </div>
 
-  <div class = "columns is-mobile is-centered">
-  
+  <div class="columns is-mobile is-centered">
+
     <form class="box" style="width: 450px">
-        <div class="field">
-            <label class="label ">Email</label>
-            <div class="control">
-            <input class="input" type="email" placeholder="e.g. erlito@example.com">
-            
-          </div>
-        </div>
+      <div class="field">
+        <label class="label ">Email</label>
+        <div class="control">
+          <input class="input" type="email" placeholder="e.g. erlito@example.com">
 
-        <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-            <input class="input" type="password" placeholder="********">
-            </div>
         </div>
+      </div>
 
-        <div class="field is-grouped is-grouped-right">
-          <p class="control">
-            <a class="button is-hovered is-rounded is-success is-outlined">
-              LOG IN
-            </a>
-          </p>
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input" type="password" placeholder="********">
         </div>
+      </div>
+
+      <div class="field is-grouped is-grouped-right">
+        <p class="control">
+          <a class="button is-hovered is-rounded is-success is-outlined">
+            LOG IN
+          </a>
+        </p>
+      </div>
     </form>
   </div>
 
@@ -117,9 +117,11 @@
 <!-- Sign Up button-->
 
 <div class="card-container">
-  <span class = "span-spaces"><p class="subtitle is-10 has-text-centered">
-    Don't have an account yet?    
-  </p></span>
+  <span class="span-spaces">
+    <p class="subtitle is-10 has-text-centered">
+      Don't have an account yet?
+    </p>
+  </span>
   <button (click)="onClickSignUp()" class="button is-small button is-success is-outlined ">Sign Up</button>
 </div>
 <div class="column is-4"></div>
@@ -147,45 +149,46 @@
       <div class="field">
         <label class="label ">Name</label>
         <div class="control">
-        <input class="input" type="name" placeholder="e.g. Han Jisung">
+          <input class="input" type="name" placeholder="e.g. Han Jisung">
         </div>
       </div>
 
       <div class="field">
         <label class="label ">Email</label>
         <div class="control">
-        <input class="input" type="email" placeholder="e.g. erlito@example.com">
+          <input class="input" type="email" placeholder="e.g. erlito@example.com">
         </div>
       </div>
 
       <div class="field">
         <label class="label ">Password</label>
         <div class="control">
-        <input class="input" type="password" placeholder="*******">
+          <input class="input" type="password" placeholder="*******">
         </div>
       </div>
 
       <div class="field">
         <label class="label ">Phone Number</label>
         <div class="control">
-        <input class="input" type="phone number" placeholder="e.g. +63912345678 / 09123456789">
+          <input class="input" type="phone number" placeholder="e.g. +63912345678 / 09123456789">
         </div>
       </div>
 
       <div class="field">
         <label class="label ">Address</label>
         <div class="control">
-        <input class="input" type="address" placeholder="e.g. Street No., Barangay, Town / Municiplaity, City, Province, Country">
+          <input class="input" type="address"
+            placeholder="e.g. Street No., Barangay, Town / Municiplaity, City, Province, Country">
         </div>
       </div>
 
     </section>
-    
+
     <footer class="modal-card-foot">
 
-      <button class="button is-small is-success is-outlined">Register</button>
+      <button (click) ="onSubmit()" class="button is-small is-success is-outlined">Register</button>
       <button (click)="onClickExit()" class="button is-small is-danger is-outlined">Cancel</button>
-      
+
     </footer>
   </div>
 </div>

@@ -1,13 +1,23 @@
-export interface User {
+export enum UserType {
+    BUYER = 'buyer',
+    SELLER = 'seller',
+    UNKNOWN = '',
+}
+
+export class User {
     name: string;
     email: string;
     phoneNumber: string;
     address: string;
     password: string;
     userType: UserType;
-}
 
-export enum UserType {
-    BUYER = 'buyer',
-    SELLER = 'seller',
+    constructor() {
+        this.name = '';
+        this.email = '';
+        this.phoneNumber = '';
+        this.address = '';
+        this.password = '';
+        this.userType = UserType.UNKNOWN
+    }
 }

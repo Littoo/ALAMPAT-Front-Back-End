@@ -1,0 +1,73 @@
+<!-- Registration Modal -->
+<div class="modal" [ngClass]="openRegisterModal ? 'is-active' : ''">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Registration</p>
+            <button (click)="onClickExit()" class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <!-- Content ... -->
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit" novalidate>
+                <label class="label">Choose Account Type:</label>
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="userType" value="buyer" formControlName="userType">
+                            BUYER
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="userType" value="seller" formControlName="userType">
+                            SELLER
+                        </label>
+                    </div>
+                </div>
+
+                <div class="column is-4"></div>
+                <div class="field">
+                    <label class="label ">Name</label>
+                    <div class="control">
+                        <input formControlName="name" class="input" type="name" placeholder="e.g. Han Jisung">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Email</label>
+                    <div class="control">
+                        <input formControlName="email" class="input" type="email" placeholder="e.g. erlito@example.com">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Password</label>
+                    <div class="control">
+                        <input formControlName="password" class="input" type="password" placeholder="*******">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Phone Number</label>
+                    <div class="control">
+                        <input formControlName="phoneNumber" class="input" type="phone number"
+                            placeholder="e.g. +63912345678 / 09123456789">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Address</label>
+                    <div class="control">
+                        <input formControlName="address" class="input" type="address"
+                            placeholder="e.g. Street No., Barangay, Town / Municiplaity, City, Province, Country">
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <footer class="modal-card-foot">
+
+            <button (click)="onSubmit()" class="button is-small is-success is-outlined">Register</button>
+            <button (click)="onClickExit()" class="button is-small is-danger is-outlined">Cancel</button>
+
+        </footer>
+    </div>
+</div>

@@ -1,5 +1,116 @@
-<section class="hero">
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .span-spaces {
+    padding-left: 5px;
+    padding-right: 10px;
+  }
+</style>
+
+<section class="header">
   <!-- Header -->
-  <p>i put something here</p>
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="assets/alampat-icon.ico" alt="alampaticon" width="29">
+          </a>
+          <span class="navbar-item">
+            ALAMPAT
+          </span>
+          <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span> </span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <a (click)="" class="navbar-item">
+              Marketplace
+            </a>
+            <a (click)="" class="navbar-item">
+              Commissions
+            </a>
+            <a (click)="" class="navbar-item">
+              My Account
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </div>
+
+  <!-- EVERYTHING UNDER THIS WILL BE LINKED FROM THE DATABASE. EVERYTHING HERE IS FOR PLACEHOLDING PURPOSES-->
+  <!-- Buyer Name -->
+<section>
+  <div class="buyerName" id="nameBuyer">
+    <p class="title is-size-3 is-family-primary has-text-success-dark ">
+      Carl Josiah Ocampo
+    </p>
+    <span> </span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- MyAccount Section -->
+<section>
+  <div class="container has-text-centered" id="myAccountBuyer">
+    <p class="title is-size-3 is-family-primary has-text-success-dark ">
+      Account Details
+    </p>
+    <span> </span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="columns is-mobile is-centered">
+
+    <form class="box" style="width: 450px">
+      <div class="field">
+        <label class="label ">Email</label>
+        <div class="control">
+          <input class="input" type="email" placeholder="erlito@example.com">
+
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input class="input" type="password" placeholder="********">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Phone Number</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="0912 345 6789">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Delivery Address</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Unit 18L, Azalea Place Cebu, Gorordo Ave., Brgy. Lahug, Cebu City, Cebu, 6000">
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</section>
+
 
 </section>

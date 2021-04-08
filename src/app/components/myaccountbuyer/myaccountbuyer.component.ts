@@ -9,5 +9,5 @@ export class MyAccountBuyerComponent implements OnInit {
  
   ngOnInit(): void {
   }
-  
+
 }

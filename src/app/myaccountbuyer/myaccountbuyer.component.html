@@ -1,3 +1,21 @@
+<style>
+    html {
+      scroll-behavior: smooth;
+    }
+  
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+  
+    .span-spaces {
+      padding-left: 5px;
+      padding-right: 10px;
+    }
+</style>
+
 <!--HEADER-->
 <section class="hero has-background-primary-dark">
     <div class="hero-head">
@@ -49,7 +67,7 @@
                 <span>&nbsp;&nbsp;&nbsp;</span>
                 <div class="tile is-5 is-child">
                     <p class="title">
-                        Carl Josiah Ocampo
+                        Fernand Bernadez
                     </p>
                     <p class="subtitle">
                         My Account - Buyer
@@ -61,6 +79,7 @@
                         <strong>Edit</strong>
                     </button>
                     &nbsp;
+                    <!-- SAVE and CANCEL is yet to be programmed when EDIT is clicked-->
                     <button class="button is-primary is-small">
                         <strong>Save</strong>
                     </button>
@@ -75,17 +94,32 @@
 </section>
 
 <!-- ACCOUNT INFO -->
-<div class="container">
-    <div class="tile is-ancestor">
-        <div class="tile is-2 is-child"><!--EMPTY SPACE--></div>
-        <div class="tile is-8 is-parent notification">
-            <div class="tile is-child">
-                <p>Shipping Address: </p>
-                <p>&nbsp;</p>
-                <p>Phone Number: </p>
-                <p>Email Address: </p>
+<section>
+    <div class="container has-text-centered" id="login">
+        <span> </span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="columns is-mobile is-centered">
+        <div class="box" style="width: 800px">
+            <div class="field">
+                <label class="label ">Email Address</label>
+                <div class="control has-icons-left">
+                    <textarea class="textarea has-fixed-size" rows="1" readonly>nandzgwapu143@gmail.com</textarea>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label ">Phone Number</label>
+                <div class="control">
+                    <textarea class="textarea has-fixed-size" rows="1" readonly>0912 345 6789</textarea>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label ">Shipping Address</label>
+                <div class="control">
+                    <textarea class="textarea" rows="1" readonly>Unit 18L, Azalea Place Cebu, Gorordo Ave., Brgy. Lahug, Cebu City, Cebu, 6000</textarea>
+                </div>
             </div>
         </div>
-        <div class="tile is-2 is-child"><!--EMPTY SPACE--></div>
     </div>
-</div>
+</section>

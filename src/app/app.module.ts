@@ -8,6 +8,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MyaccountbuyerComponent } from './myaccountbuyer/myaccountbuyer.component';
+import { MyaccountsellerComponent } from './myaccountseller/myaccountseller.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MyaccountbuyerComponent } from './myaccountbuyer/myaccountbuyer.compone
     WelcomeComponent,
     FooterComponent,
     ContactComponent,
-    MyaccountbuyerComponent
+    MyaccountbuyerComponent,
+    MyaccountsellerComponent
   ],
   imports: [
     BrowserModule,

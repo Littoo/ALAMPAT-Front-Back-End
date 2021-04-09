@@ -2,7 +2,7 @@
     html {
       scroll-behavior: smooth;
     }
-  
+
     .card-container {
       display: flex;
       flex-wrap: wrap;
@@ -17,39 +17,54 @@
 </style>
 
 <!--HEADER-->
-<section class="hero has-background-primary-dark">
-    <div class="hero-head">
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-brand">
-                    <a class="navbar-item">
-                        <img src="assets/alampat-icon.ico" alt="alampatIcon" width="29">
+<section class="section">
+    <nav class="navbar is-primary is-fixed-top">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="assets/alampat-icon.ico" alt="alampatIcon" width="29">
+                </a>
+                <a class="navbar-item ">
+                    ALAMPAT
+                </a>
+                <span class="navbar-burger" data-target="navbarMenuHeroA">
+                    <span> </span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div class="navbar-menu" id="navbarMenuHeroA">
+                <div class="navbar-end">
+                    <a class="navbar-item ">
+                        Marketplace
                     </a>
-                    <span class="navbar-item has-text-white">
-                        ALAMPAT
-                    </span>
-                </div>
-                <div id="navbarMenuHeroA" class="navbar-menu">
-                    <div class="navbar-end">
-                        <a class="navbar-item has-text-white">
-                            Marketplace
-                        </a>
-                        <a class="navbar-item has-text-white">
-                            Commissions
-                        </a>
-                        <a class="navbar-item has-text-white">
+                    <a class="navbar-item ">
+                        Commissions
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable is-right">
+                        <a class="navbar-link ">
                             My Account
                         </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                Hatdog
+                            </a>
+                            <a class="navbar-item">
+                                Hamburjer
+                            </a>
+                            <a class="navbar-item">
+                                Hamonada
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>
-    </div>
-
+        </div>
+    </nav>
 </section>
 
 <!-- PROFILE PICTURE and NAME-->
-<section class="section">
+<section>
     <div class="container">
         <div class="tile is-ancestor ">
             <div class="tile is-8 is-parent">
@@ -65,10 +80,11 @@
                         Fernand Bernardez
                     </p>
                     <p class="subtitle">
-                        <button class="button is-small is-rounded is-static">Buyer Account</button>
+                        <button class="button is-small is-rounded is-static"><strong>Buyer Account</strong></button>
                     </p>
                 </div>
-                <!-- BUTTONS -->
+
+<!-- EDIT, SAVE, CANCEL BUTTONS -->
                 <div class="tile is-3 is-child"><!--EMPTY SPACE--></div>
                 <div class="tile is-5 is child">
                     <div class="buttons is-right">
@@ -78,7 +94,7 @@
                         </button>
                         &nbsp;
                         <!-- SAVE and CANCEL is yet to be programmed when EDIT is clicked-->
-                        <button class="button is-primary is-small">
+                        <button class="button is-success is-small">
                             <strong>Save</strong>
                         </button>
                         &nbsp;
@@ -90,10 +106,11 @@
             </div>
         </div>
     </div>
-    
 </section>
+
 <!-- ACCOUNT INFO -->
-<section>
+<!-- info will most likely be linked from the database-->
+<section class="section">
     <div class="columns is-mobile is-centered">
         <div class="box" style="width: 800px">
             <div class="field">

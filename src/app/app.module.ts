@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MyaccountbuyerComponent } from './components/myaccountbuyer/myaccountbuyer.component';
 import { MyaccountsellerComponent } from './components/myaccountseller/myaccountseller.component';
-import { HeaderbuyerComponent } from './headerbuyer/headerbuyer.component';
+import { HeaderbuyerComponent } from './components/headerbuyer/headerbuyer.component';
 
 @NgModule({
   declarations: [

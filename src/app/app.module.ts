@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { MyaccountbuyerComponent } from './components/myaccountbuyer/myaccountbuyer.component';
 import { MyaccountsellerComponent } from './components/myaccountseller/myaccountseller.component';
 import { HeaderbuyerComponent } from './components/headerbuyer/headerbuyer.component';
+import { HeadersellerComponent } from './components/headerseller/headerseller.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderbuyerComponent } from './components/headerbuyer/headerbuyer.compo
     ContactComponent,
     MyaccountbuyerComponent,
     MyaccountsellerComponent,
-    HeaderbuyerComponent
+    HeaderbuyerComponent,
+    HeadersellerComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { MyaccountbuyerComponent } from './components/myaccountbuyer/myaccountbu
 import { MyaccountsellerComponent } from './components/myaccountseller/myaccountseller.component';
 import { HeaderbuyerComponent } from './components/headerbuyer/headerbuyer.component';
 import { HeadersellerComponent } from './components/headerseller/headerseller.component';
+import { EditaccountbuyerComponent } from './components/editaccountbuyer/editaccountbuyer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HeadersellerComponent } from './components/headerseller/headerseller.co
     MyaccountbuyerComponent,
     MyaccountsellerComponent,
     HeaderbuyerComponent,
-    HeadersellerComponent
+    HeadersellerComponent,
+    EditaccountbuyerComponent
   ],
   imports: [
     BrowserModule,

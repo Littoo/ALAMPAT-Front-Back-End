@@ -12,6 +12,7 @@ import { MyaccountsellerComponent } from './components/myaccountseller/myaccount
 import { HeaderbuyerComponent } from './components/headerbuyer/headerbuyer.component';
 import { HeadersellerComponent } from './components/headerseller/headerseller.component';
 import { EditaccountbuyerComponent } from './components/editaccountbuyer/editaccountbuyer.component';
+import { EditaccountsellerComponent } from './components/editaccountseller/editaccountseller.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EditaccountbuyerComponent } from './components/editaccountbuyer/editacc
     MyaccountsellerComponent,
     HeaderbuyerComponent,
     HeadersellerComponent,
-    EditaccountbuyerComponent
+    EditaccountbuyerComponent,
+    EditaccountsellerComponent
   ],
   imports: [
     BrowserModule,

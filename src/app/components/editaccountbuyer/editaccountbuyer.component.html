@@ -1,1 +1,63 @@
-<p>editaccountbuyer works!</p>
+<div class="modal is-active"> <!--insert "is-active" to view modal-->
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title"><strong>Edit Account</strong></p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="field is-grouped is-grouped-centered">
+                <figure class="image is-128x128">
+                    <img class="is-rounded" src="http://reactionimage.org/img/gallery/918476615.jpg">
+                </figure>
+            </div>
+            <div class="field has-text-centered">
+                <button class="button is-small is-light is-warning">Change Profile Picture</button>
+            </div>
+            <form novalidate>
+                <!-- Placeholders should be linked with the actual data from database -->
+                <div class="field">
+                    <label class="label ">Name</label>
+                    <div class="control">
+                        <input formControlName="name" class="input" type="name" placeholder="Fernand Bernardez">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Email</label>
+                    <div class="control">
+                        <input formControlName="email" class="input" type="email" placeholder="nandzgwapu143@gmail.com">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Password</label>
+                    <div class="control">
+                        <input formControlName="password" class="input" type="password" placeholder="***************">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Phone Number</label>
+                    <div class="control">
+                        <input formControlName="phoneNumber" class="input" type="phone number"
+                            placeholder="09123456789">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label ">Address</label>
+                    <div class="control">
+                        <input formControlName="address" class="input" type="address"
+                            placeholder="Unit 18L, Azalea Place Cebu, Gorordo Ave., Brgy. Lahug, Cebu City, Cebu, 6000">
+                    </div>
+                </div>
+            </form>
+        </section>
+        <footer class="modal-card-foot">
+            <div class="tile"></div>
+            <button class="button is-small is-success is-outlined">Save</button>
+            <button class="button is-small is-danger is-outlined">Cancel</button>
+        </footer>
+    </div>
+</div>

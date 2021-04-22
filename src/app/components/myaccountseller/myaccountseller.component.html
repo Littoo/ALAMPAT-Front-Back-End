@@ -40,11 +40,11 @@
                 </div>
 
                 <!-- EDIT BUTTON -->
-                <div class="tile is-3 is-child"><!--EMPTY SPACE--></div>
+                <div class="tile is-5 is-child"><!--EMPTY SPACE--></div>
                 <div class="tile is-5 is child">
                     <div class="buttons is-right">
                         &nbsp; &nbsp;
-                        <button (click)="onClickEditAccountSeller();" class="button is-warning is-light is-small is-outlined">
+                        <button (click)="onClickEditAccountSeller();" class="button is-warning is-small">
                             <strong>Edit</strong>
                         </button>
                     </div>
@@ -90,4 +90,6 @@
         </div>
     </div>
 </section>
+
+<!-- links to other pages and modals -->
 <app-editaccountseller [openEditAccountSellerModal] = 'showEditAccountSellerModal'></app-editaccountseller>

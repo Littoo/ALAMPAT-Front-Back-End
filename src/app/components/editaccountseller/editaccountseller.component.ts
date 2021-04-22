@@ -18,6 +18,11 @@ export class EditaccountsellerComponent implements OnInit {
     this.submitted = true;
   }
   
+  onClickSave = () => {
+    // inser something here to save changes
+    this.openEditAccountSellerModal = false;
+  }
+
   onClickExit = () => {
     this.openEditAccountSellerModal = false;
   }

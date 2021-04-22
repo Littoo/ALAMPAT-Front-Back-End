@@ -13,10 +13,6 @@ export class EditaccountsellerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onSubmit = () => {
-    this.submitted = true;
-  }
   
   onClickSave = () => {
     // inser something here to save changes

@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./myaccountbuyer.component.css']
 })
 export class MyaccountbuyerComponent implements OnInit {
+  showEditAccountBuyerModal: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClickEditAccountBuyer = () => {
+    this.showEditAccountBuyerModal = !this.showEditAccountBuyerModal;
+  }
 }

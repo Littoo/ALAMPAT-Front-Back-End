@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-editaccountseller',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editaccountseller.component.css']
 })
 export class EditaccountsellerComponent implements OnInit {
+  @Input() openEditAccountSellerModal: boolean = false;
+  submitted: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit = () => {
+    this.submitted = true;
+  }
+  
+  onClickExit = () => {
+    this.openEditAccountSellerModal = false;
   }
 
 }

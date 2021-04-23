@@ -5,55 +5,58 @@
             <p class="modal-card-title"><strong>Edit Account</strong></p>
             <button (click)="onClickExit()" class="delete" aria-label="close"></button>
         </header>
+        <!-- Modal Content -->
         <section class="modal-card-body">
-            <div class="field is-grouped is-grouped-centered">
-                <figure class="image is-128x128">
-                    <img class="is-rounded" src="http://reactionimage.org/img/gallery/918476615.jpg">
-                </figure>
-            </div>
-            <div class="field has-text-centered">
-                <button class="button is-small is-light is-warning">Change Profile Picture</button>
-            </div>
-            <form novalidate>
+            <form [formGroup]="editAccountBuyerForm" (ngSubmit)="editAccountBuyer()" novalidate autocomplete="false">
+                <div class="field is-grouped is-grouped-centered">
+                    <figure class="image is-128x128">
+                        <img class="is-rounded" src="http://reactionimage.org/img/gallery/918476615.jpg">
+                    </figure>
+                </div>
+                <div class="field has-text-centered">
+                    <button (click)="onClickChangePhoto()" class="button is-small is-light is-warning is-outlined">
+                        <strong>Change Profile Picture</strong>
+                    </button>
+                </div>
+            
                 <!-- Placeholders should be linked with the actual data from database -->
                 <div class="field">
                     <label class="label ">Name</label>
                     <div class="control">
-                        <input formControlName="name" class="input" type="name" placeholder="Fernand Bernardez">
+                        <input [ngClass]="{ 'has-error': formControls.name?.errors }" class="input" formControlName="name" placeholder="Unchanged">
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label ">Email</label>
                     <div class="control">
-                        <input formControlName="email" class="input" type="email" placeholder="nandzgwapu143@gmail.com">
+                        <input [ngClass]="{ 'has-error': formControls.email?.errors }" class="input" type="email" formControlName="email" placeholder="Unchanged">
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label ">Password</label>
                     <div class="control">
-                        <input formControlName="password" class="input" type="password" placeholder="***************">
+                        <input [ngClass]="{ 'has-error': formControls.password?.errors }" class="input" type="password" formControlName="password" placeholder="Unchanged">
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label ">Phone Number</label>
                     <div class="control">
-                        <input formControlName="phoneNumber" class="input" type="phone number"
-                            placeholder="09123456789">
+                        <input [ngClass]="{ 'has-error': formControls.phoneNumber?.errors }" class="input" type="phone number" formControlName="phoneNumber" placeholder="Unchanged">
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label ">Address</label>
                     <div class="control">
-                        <input formControlName="address" class="input" type="address"
-                            placeholder="Unit 18L, Azalea Place Cebu, Gorordo Ave., Brgy. Lahug, Cebu City, Cebu, 6000">
+                        <input [ngClass]="{ 'has-error': formControls.address?.errors }" class="input" formControlName="address" placeholder="Unchanged">
                     </div>
                 </div>
             </form>
         </section>
+        <!-- Footer Buttons -->
         <footer class="modal-card-foot">
             <div class="tile"></div>
             <button (click)="onClickSave()" class="button is-small is-success is-outlined">Save</button>

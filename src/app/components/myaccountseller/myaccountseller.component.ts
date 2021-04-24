@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios'
+import { AccountService } from 'src/app/services/user';
+import { Observable } from 'rxjs';
+
+
+
 
 @Component({
   selector: 'app-myaccountseller',
@@ -7,10 +13,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyaccountsellerComponent implements OnInit {
   showEditAccountSellerModal: boolean = false;
+  user: any;
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.accountService.getUserdata().then(userData => this.user = userData)
+    console.log(this.user)
   }
 
   onClickEditAccountSeller = () => {

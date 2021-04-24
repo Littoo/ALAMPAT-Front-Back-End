@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -11,25 +11,42 @@ export class EditaccountsellerComponent implements OnInit {
   submitted: boolean = false;
   editAccountSellerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.editAccountSellerForm = this.formBuilder.group ({
-      profilePhoto: [Validators.required],
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      sellerDescription: ['', Validators.required],
+      profileImage:[ null ],
+      name: [''],
+      email: [''],
+      password: [''],
+      phoneNumber: [''],
+      sellerDescription: [''],
+      
     });
   }
   get formControls() { return this.editAccountSellerForm.controls; }
 
-  onClickChangePhoto = () => {
-    //insert code here to open file explorer
+  onClickChangePhoto = (event: Event) => {
+    const reader = new FileReader();
+    const target= event.target as HTMLInputElement;
+
+    if(target.files && target.files.length) {
+      const file: File = (target.files as FileList)[0];
+      reader.readAsDataURL(file);
+  
+      reader.onload = () => {
+        this.editAccountSellerForm.patchValue({
+          file: reader.result
+       });
+      
+        // need to run CD since file load runs outside of zone
+        this.cd.markForCheck();
+      };
+    }
   }
 
   onClickSave = () => {
+
     this.submitted = true;  
   }
 

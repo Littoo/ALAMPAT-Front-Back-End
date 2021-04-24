@@ -16,7 +16,7 @@
                 <div class="field is-centered">
                     <div class="file is-small is-centered">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="resume">
+                            <input input [ngClass]="{ 'has-error': formControls.profileImage?.errors }"  class="file-input" type="file" (change)="onClickChangePhoto($event)" name="resume">
                             <span class="file-cta">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -68,7 +68,7 @@
         </section>
         <footer class="modal-card-foot">
             <div class="tile"></div>
-            <button (click)="onClickSave()" class="button is-small is-success is-outlined">Save</button>
+            <button (click)="onClickSave()"  class="button is-small is-success is-outlined">Save</button>
             <button (click)="onClickExit()" class="button is-small is-danger is-outlined">Cancel</button>
         </footer>
     </div>

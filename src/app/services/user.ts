@@ -8,7 +8,7 @@ const localAPI = 'http://localhost:3000'
 
 interface getUserResponse {
     message: string;
-    userData: any;
+    userData: User;
     success: boolean;
 }
 
@@ -16,31 +16,47 @@ interface getUserResponse {
     providedIn: 'root',
 })
 
-
+//Not usable for now 
 export class AccountService {
     getUserError: string = '';
     userID: string = '607fe491958fa65f08f14d0e';
+    user = new User();
+    constructor(private router:Router,) { }
 
-    constructor(private router:Router) { }
-
-    getUserdata = async () => {
+    getUserdata=()=>{
         try {
-            const response = await axios.get<getUserResponse>(`${localAPI}/users/profile/` + this.userID);
+            axios.get(`${localAPI}/users/profile/` + this.userID)
+            .then(resp => {
+                this.user = resp.data.userData
+                
+                console.log(this.user);
+                return resp.data
+            })
+            .catch(err => {
+                // Handle Error Here
+                
+                console.error(err);
+                return err
+            });;
+            /*const response = await axios.get(`${localAPI}/users/profile/` + this.userID);
             const { message, userData, success } = response.data
             if (success) {
                 console.log(message, userData)
-                return  userData
+                this.user = userData 
+                console.log(this.user)
+                return  this.user; 
                 //
             } else {
                 console.log(message, userData)
-                return success
-            }
+                return this.user
+            }*/
 
         } catch (error) {
             
             console.log(error)
             this.getUserError = error
-            return false
+
+            return error
         }
     }
 

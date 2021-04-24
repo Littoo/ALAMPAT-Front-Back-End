@@ -6,6 +6,11 @@ export enum UserType {
 
 export class User {
     name: string;
+    profileImage:{
+        filename: string,
+        contentType: string, 
+        imageBase64: string
+    }
     email: string;
     phoneNumber: string;
     address: string;

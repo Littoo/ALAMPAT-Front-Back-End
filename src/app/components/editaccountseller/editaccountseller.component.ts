@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import axios from 'axios';
-
+import { DomSanitizer } from '@angular/platform-browser';
 
 const localAPI = 'http://localhost:3000'
 
@@ -16,10 +16,12 @@ export class EditaccountsellerComponent implements OnInit {
   editAccountSellerForm: FormGroup;
 
   user:  any;
-  public imageSRC: string = '';
+  string64: any;
+  filetype: any;
+  public imageSRC : any
   userID: string = '607fe491958fa65f08f14d0e';
 
-  constructor(private formBuilder: FormBuilder, private cd: ChangeDetectorRef,) { }
+  constructor(private formBuilder: FormBuilder, private cd: ChangeDetectorRef, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
@@ -53,9 +55,13 @@ export class EditaccountsellerComponent implements OnInit {
 
     if(target.files && target.files.length) {
       const file: File = (target.files as FileList)[0];
+      this.filetype =this.domSanitizer.bypassSecurityTrustUrl(file.type)
       reader.readAsDataURL(file);
   
       reader.onload = () => {
+        this.string64 = reader.result
+        this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.string64);
+        console.log("Hello" + reader.result)
         this.editAccountSellerForm.patchValue({
           file: reader.result
        });

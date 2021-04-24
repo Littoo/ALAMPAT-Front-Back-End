@@ -1,5 +1,9 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import axios from 'axios';
+
+
+const localAPI = 'http://localhost:3000'
 
 @Component({
   selector: 'app-editaccountseller',
@@ -11,9 +15,26 @@ export class EditaccountsellerComponent implements OnInit {
   submitted: boolean = false;
   editAccountSellerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private cd: ChangeDetectorRef) { }
+  user:  any;
+  public imageSRC: string = '';
+  userID: string = '607fe491958fa65f08f14d0e';
+
+  constructor(private formBuilder: FormBuilder, private cd: ChangeDetectorRef,) { }
 
   ngOnInit(): void {
+
+    //getting and displaying the data of the  logged in user by UserId
+    axios.get(`${localAPI}/users/profile/` + this.userID)
+    .then(resp => {
+        this.user = resp.data.userData
+        this.imageSRC = `data:${this.user.profileImage?.contentType};base64,${this.user.profileImage?.imageBase64}`
+        console.log("user data: "+ JSON.stringify(this.user));
+    })
+    .catch(err => {
+        // Handle Error Here
+        console.error(err);
+    });
+
     this.editAccountSellerForm = this.formBuilder.group ({
       profileImage:[ null ],
       name: [''],

@@ -27,6 +27,7 @@ export class ContactComponent implements OnInit {
   passwordPattern = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
 
   ngOnInit() {
+    
     this.createForm = new FormGroup({
       name: new FormControl('', [
         Validators.required

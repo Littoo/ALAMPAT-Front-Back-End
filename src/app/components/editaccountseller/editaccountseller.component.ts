@@ -39,18 +39,9 @@ export class EditaccountsellerComponent implements OnInit {
     axios.get(`${localAPI}/users/profile/` + this.userID)
     .then(resp => {
         this.user = resp.data.userData 
-        //this.editAccountSellerForm.setValue["name"] =  resp.data.userData.name
-        this.editAccountSellerForm.patchValue({
-          name: this.user?.name,
-          email: this.user?.email,
-          password: this.user?.password,
-          phoneNumber: this.user?.phoneNumber,
-          profileImage:{
-            filename: this.user?.profileImage.filename,
-            contentType: this.user?.profileImage.contentType,
-            imageBase64: this.user?.profileImage.imageBase64
-            }
-        })
+
+        this.initForm()
+
         //replace this when frontend is integrated to backend since it will be saved in one string
         this.imageSRC = `data:${this.user.profileImage?.contentType};base64,${this.user.profileImage?.imageBase64}`
 
@@ -74,7 +65,7 @@ export class EditaccountsellerComponent implements OnInit {
       sellerDescription: [''],
     });
     
-    
+   
     
     //console.log("Initial Seller Form Data: " + JSON.stringify( this.editAccountSellerForm.value));
   }
@@ -117,7 +108,21 @@ export class EditaccountsellerComponent implements OnInit {
   onClickExit = () => {
     this.openEditAccountSellerModal = false;
     this.submitted = false;
-    this.editAccountSellerForm.reset();
+    this.initForm()
+  }
+
+  initForm = () => {
+    this.editAccountSellerForm.reset({
+      name: this.user?.name,
+      email: this.user?.email,
+      password: this.user?.password,
+      phoneNumber: this.user?.phoneNumber,
+      profileImage:{
+        filename: this.user?.profileImage.filename,
+        contentType: this.user?.profileImage.contentType,
+        imageBase64: this.user?.profileImage.imageBase64
+        }
+      });
   }
 
   editAccountSeller = async () => {

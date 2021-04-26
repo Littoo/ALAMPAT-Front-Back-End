@@ -66,6 +66,7 @@ export class EditaccountsellerComponent implements OnInit {
       password: ['', [Validators.pattern('^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
       phoneNumber: ['', [Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       description: [''],
+      
     });
 
   }

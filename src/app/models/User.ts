@@ -23,6 +23,10 @@ export class User {
         this.phoneNumber = '';
         this.address = '';
         this.password = '';
-        this.userType = UserType.UNKNOWN
+        this.userType = UserType.UNKNOWN;
+        this.profileImage.filename = '';
+        this.profileImage.contentType = '';
+        this.profileImage.imageBase64 = '';
+        this.description = '';
     }
 }

@@ -55,7 +55,7 @@ export class AccountService {
 
     updateUserdata = async (user: User ) => {
         try {
-            const response = await axios.put<getUserResponse>(`${localAPI}/users/updateAccount/${this.userID}`, user);
+            const response = await axios.patch<getUserResponse>(`${localAPI}/users/updateAccount/${this.userID}`, user);
             const { message, success } = response.data
             //console.log(response.data)
             if (success) {

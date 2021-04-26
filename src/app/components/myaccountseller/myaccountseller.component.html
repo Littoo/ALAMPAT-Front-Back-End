@@ -14,6 +14,13 @@
       padding-left: 5px;
       padding-right: 10px;
     }
+
+    .profileImage {
+        height:64px;
+        width:64px;
+        object-fit:cover;
+        border-radius: 50%;
+    }
 </style>
 
 <app-headerseller></app-headerseller>
@@ -25,8 +32,8 @@
             <div class="tile is-8 is-parent">
                 <div class="tile is-3 is-child"><!--EMPTY SPACE--></div>
                 <div class="tile is-1 is-child">
-                    <figure class="image is-64x64">
-                        <img class="is-rounded" [src]= "imageSRC">
+                    <figure class="image">
+                        <img class="profileImage" [src]= "imageSRC">
                     </figure>
                 </div>
                 <span>&nbsp;&nbsp;&nbsp;</span>

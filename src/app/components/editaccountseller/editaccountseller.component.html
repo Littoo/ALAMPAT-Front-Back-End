@@ -1,3 +1,12 @@
+<style>
+    .profileImage {
+        height:128px;
+        width:128px;
+        object-fit:cover;
+        border-radius: 50%;
+    }
+</style>
+
 <div class="modal" [ngClass]="openEditAccountSellerModal ? 'is-active' : ''"> <!--insert "is-active" to view modal-->
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -9,8 +18,8 @@
         <section class="modal-card-body">
             <form [formGroup]="SellerForm" (ngSubmit)="onClickSave" novalidate autocomplete="false">
                 <div class="field is-grouped is-grouped-centered">
-                    <figure class="image is-128x128">
-                        <img class="is-rounded" [src]= "imageSRC">
+                    <figure class="image">
+                        <img class="profileImage" [src]= "imageSRC">
                     </figure>
                 </div>
                 <div class="field is-centered">

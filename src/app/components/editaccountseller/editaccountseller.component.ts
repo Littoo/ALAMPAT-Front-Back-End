@@ -62,9 +62,9 @@ export class EditaccountsellerComponent implements OnInit {
         imageBase64:[''],
       }),
       name: [''],
-      email: [''],
-      password: [''],
-      phoneNumber: [''],
+      email: ['', [Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      password: ['', [Validators.pattern('^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')]],
+      phoneNumber: ['', [Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
       description: [''],
     });
 

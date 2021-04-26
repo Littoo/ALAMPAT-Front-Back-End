@@ -51,6 +51,7 @@
                     <label class="label ">Email</label>
                     <div class="control">
                         <input [ngClass]="{ 'has-error': formControls.email?.errors }" class="input" type="email" formControlName="email" placeholder="Unchanged">
+                        <div class="subtitle is-size-7 has-text-danger" *ngIf="formControls.email?.errors?.pattern">Email is invalid</div>
                     </div>
                 </div>
 
@@ -58,6 +59,7 @@
                     <label class="label ">Password</label>
                     <div class="control">
                         <input [ngClass]="{ 'has-error': formControls.password?.errors }" class="input" type="password" formControlName="password" placeholder="Unchanged">
+                        <div class="subtitle is-size-7 has-text-danger" *ngIf="formControls.password?.errors?.pattern">Password is invalid</div>
                     </div>
                 </div>
 
@@ -65,6 +67,7 @@
                     <label class="label ">Phone Number</label>
                     <div class="control">
                         <input [ngClass]="{ 'has-error': formControls.phoneNumber?.errors }" class="input" type="phone number" formControlName="phoneNumber" placeholder="Unchanged">
+                        <div class="subtitle is-size-7 has-text-danger" *ngIf="formControls.phoneNumber?.errors?.pattern">Phone Number is invalid</div>
                     </div>
                 </div>
 

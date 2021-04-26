@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AccountService } from 'src/app/services/user';
+import { AccountService } from 'src/app/services/account';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({

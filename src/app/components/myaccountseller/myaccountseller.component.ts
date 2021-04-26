@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios'
-import { AccountService } from 'src/app/services/user';
+import { AccountService } from 'src/app/services/account';
 import { User } from '../../models/User'
 import { DomSanitizer } from '@angular/platform-browser';
 

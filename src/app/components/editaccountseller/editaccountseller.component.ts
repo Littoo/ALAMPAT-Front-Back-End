@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import axios from 'axios';
 import { DomSanitizer } from '@angular/platform-browser';
 import { User } from '../../models/User'
-import { AccountService } from 'src/app/services/user';
+
+import { AccountService } from 'src/app/services/account';
 import { Router, ActivatedRoute } from '@angular/router';
 
 

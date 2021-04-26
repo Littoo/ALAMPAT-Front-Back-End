@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from 'src/app/services/user';
+import { AccountService } from 'src/app/services/account';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({

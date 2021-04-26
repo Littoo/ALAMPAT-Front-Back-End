@@ -16,7 +16,7 @@ export class User {
     address: string;
     password: string;
     userType: UserType;
-
+    description: string;
     constructor() {
         this.name = '';
         this.email = '';

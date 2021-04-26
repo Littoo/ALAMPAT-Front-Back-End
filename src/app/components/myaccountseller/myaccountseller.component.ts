@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import axios from 'axios'
 import { AccountService } from 'src/app/services/account';
 import { User } from '../../models/User'

@@ -26,9 +26,13 @@ export class MyaccountbuyerComponent implements OnInit {
     }, (error) => {
         console.log("Error", error)
     })
+    
   }
 
   onClickEditAccountBuyer = () => {
+    
     this.showEditAccountBuyerModal = !this.showEditAccountBuyerModal;
+    
+    
   }
 }

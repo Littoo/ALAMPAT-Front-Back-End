@@ -65,7 +65,7 @@ export class EditaccountsellerComponent implements OnInit {
       email: [''],
       password: [''],
       phoneNumber: [''],
-      sellerDescription: [''],
+      description: [''],
     });
 
   }
@@ -118,7 +118,7 @@ export class EditaccountsellerComponent implements OnInit {
       }
     }
 
-    console.log("Seller Form Data: " + JSON.stringify(this.SellerForm.value));
+    //console.log("Seller Form Data: " + JSON.stringify(this.SellerForm.value));
     this.submitted = true;  
   }
 
@@ -138,7 +138,8 @@ export class EditaccountsellerComponent implements OnInit {
         filename: this.user?.profileImage.filename,
         contentType: this.user?.profileImage.contentType,
         imageBase64: this.user?.profileImage.imageBase64
-        }
+        },
+      description: this.user?.description,
       });
   }
 

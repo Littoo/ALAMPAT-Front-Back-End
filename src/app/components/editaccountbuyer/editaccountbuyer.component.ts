@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Output, EventEmitter, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services/account';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class EditaccountbuyerComponent implements OnInit {
   @Input() openEditAccountBuyerModal: boolean = false;
+  
   submitted: boolean = false;
   BuyerForm: FormGroup;
 

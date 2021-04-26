@@ -7,16 +7,16 @@
         </header>
         <!-- Modal Content -->
         <section class="modal-card-body">
-            <form [formGroup]="editAccountBuyerForm" (ngSubmit)="editAccountBuyer()" novalidate autocomplete="false">
+            <form [formGroup]="BuyerForm" (ngSubmit)="onClickSave" novalidate autocomplete="false">
                 <div class="field is-grouped is-grouped-centered">
                     <figure class="image is-128x128">
-                        <img class="is-rounded" src="http://reactionimage.org/img/gallery/918476615.jpg">
+                        <img class="is-rounded" [src]= "imageSRC">
                     </figure>
                 </div>
                 <div class="field is-centered">
                     <div class="file is-small is-centered">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="resume">
+                            <input [ngClass]="{ 'has-error': formControls.profileImage?.errors }" class="file-input" (change)="onClickChangePhoto($event)" type="file" name="resume">
                             <span class="file-cta">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>

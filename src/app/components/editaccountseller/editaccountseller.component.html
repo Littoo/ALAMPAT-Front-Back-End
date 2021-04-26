@@ -7,7 +7,7 @@
         </header>
         <!-- Modal Content -->
         <section class="modal-card-body">
-            <form [formGroup]="editAccountSellerForm" (ngSubmit)="editAccountSeller()" novalidate autocomplete="false">
+            <form [formGroup]="SellerForm" (ngSubmit)="onClickSave" novalidate autocomplete="false">
                 <div class="field is-grouped is-grouped-centered">
                     <figure class="image is-128x128">
                         <img class="is-rounded" [src]= "imageSRC">

@@ -4,7 +4,6 @@ import { AccountService } from 'src/app/services/user';
 import { User } from '../../models/User'
 import { DomSanitizer } from '@angular/platform-browser';
 
-
 const localAPI = 'http://localhost:3000'
 
 @Component({
@@ -16,30 +15,25 @@ const localAPI = 'http://localhost:3000'
 export class MyaccountsellerComponent implements OnInit {
   showEditAccountSellerModal: boolean = false;
   user:  any;
-  public imageSRC: string = '';
+  public imageSRC: any;
   userID: string = '607fe491958fa65f08f14d0e';
-
-  constructor(private accountService: AccountService) { }
+  
+  constructor(
+    private domSanitizer: DomSanitizer, 
+    private accountService: AccountService) { }
 
   ngOnInit(): void {
     //getting and displaying the data of the  logged in user by UserId
-    axios.get(`${localAPI}/users/profile/` + this.userID)
-    .then(resp => {
-        this.user = resp.data.userData
-        this.imageSRC = `data:${this.user.profileImage?.contentType};base64,${this.user.profileImage?.imageBase64}`
-        console.log("User data"+ JSON.stringify(this.user));
+    this.accountService.getUserdata()
+    this.accountService.user.subscribe((user)=>{
+        this.user = user 
+        this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64)
+        console.log("User image: " + JSON.stringify(this.imageSRC))
+    }, (error) => {
+        console.log("Error", error)
     })
-    .catch(err => {
-        // Handle Error Here
-        console.error(err);
-    });
-
-    /*this.accountService.getUserdata().then(userData  => 
-      this.user = userData 
-      )
-    this.image64 = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64);
-    this.imageSRC = 'data:'+ this.user.profileImage?.contentType +';base64,' + this.image64
-    console.log("User image: " + JSON.stringify(this.imageSRC))*/
+ 
+   
   }
 
   onClickEditAccountSeller = () => {

@@ -3,12 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import axios from 'axios';
 import { DomSanitizer } from '@angular/platform-browser';
 import { User } from '../../models/User'
+import { AccountService } from 'src/app/services/user';
+import { Router, ActivatedRoute } from '@angular/router';
 
-interface Account {
-  message: string, 
-  success: boolean,
-  userData: User
-}
 
 const localAPI = 'http://localhost:3000'
 
@@ -20,7 +17,7 @@ const localAPI = 'http://localhost:3000'
 export class EditaccountsellerComponent implements OnInit {
   @Input() openEditAccountSellerModal: boolean = false;
   submitted: boolean = false;
-  editAccountSellerForm: FormGroup;
+  SellerForm: FormGroup;
 
 
   user: any; // = new User;
@@ -29,30 +26,35 @@ export class EditaccountsellerComponent implements OnInit {
   public imageSRC : any
   userID: string = '607fe491958fa65f08f14d0e';
 
-  constructor(private formBuilder: FormBuilder, private cd: ChangeDetectorRef, private domSanitizer: DomSanitizer) { 
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder, 
+    private cd: ChangeDetectorRef, 
+    private domSanitizer: DomSanitizer,
+    private accountService: AccountService) { 
     
   }
 
   ngOnInit(): void {
 
-    //getting and displaying the data of the  logged in user by UserId
-    axios.get(`${localAPI}/users/profile/` + this.userID)
-    .then(resp => {
-        this.user = resp.data.userData 
+    this.accountService.getUserdata()
+    this.accountService.user.subscribe((user)=>{
+      this.user = user 
 
-        this.initForm()
-
-        //replace this when frontend is integrated to backend since it will be saved in one string
-        this.imageSRC = `data:${this.user.profileImage?.contentType};base64,${this.user.profileImage?.imageBase64}`
-
-        // /console.log("user data: "+ JSON.stringify(this.user));
-    })
-    .catch(err => {
-        // Handle Error Here
-        console.error(err);
-    });
+      ///initialize the values present in the form
+      this.initForm()
+      
+      //sanitizes the URL to be safe to avoid warnings
+      this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64)
+      
+      console.log("User image: " + JSON.stringify(this.imageSRC))
+  
+    }, (error) => {
+      
+      console.log("Error", error)
+  })
     
-    this.editAccountSellerForm = this.formBuilder.group ({
+    this.SellerForm = this.formBuilder.group ({
       profileImage: this.formBuilder.group({
         filename: [''],
         contentType: [''],
@@ -64,19 +66,17 @@ export class EditaccountsellerComponent implements OnInit {
       phoneNumber: [''],
       sellerDescription: [''],
     });
-    
-   
-    
-    //console.log("Initial Seller Form Data: " + JSON.stringify( this.editAccountSellerForm.value));
+
   }
 
-  get formControls() { return this.editAccountSellerForm.controls; }
+  get formControls() { return this.SellerForm.controls; }
 
   onClickChangePhoto = (event: Event) => {
     const reader = new FileReader();
     const target= event.target as HTMLInputElement;
 
     if(target.files && target.files.length) {
+      
       const file: File = (target.files as FileList)[0];
       this.filetype =this.domSanitizer.bypassSecurityTrustUrl(file.type)
       reader.readAsDataURL(file);
@@ -84,8 +84,10 @@ export class EditaccountsellerComponent implements OnInit {
       reader.onload = () => {
         this.string64 = reader.result
         this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.string64);
+        
         console.log("Hello" + reader.result)
-        this.editAccountSellerForm.patchValue({
+        
+        this.SellerForm.patchValue({
           profileImage:{
           filename: file.name,
           contentType: file.type,
@@ -99,9 +101,23 @@ export class EditaccountsellerComponent implements OnInit {
     }
   }
 
-  onClickSave = () => {
+  onClickSave = async () => {
     
-    console.log("Seller Form Data: " + JSON.stringify(this.editAccountSellerForm.value));
+    if (this.SellerForm.invalid) {
+      this.submitted = true;
+      this.initForm();
+    } else {
+      var userdata = await this.accountService.updateUserdata(this.SellerForm.value);
+      if (userdata === true) {
+        this.ngOnInit()
+        //this.router.navigate(['/']) //back to accounts page
+      }
+      else {
+        this.initForm();
+      }
+    }
+
+    console.log("Seller Form Data: " + JSON.stringify(this.SellerForm.value));
     this.submitted = true;  
   }
 
@@ -112,7 +128,7 @@ export class EditaccountsellerComponent implements OnInit {
   }
 
   initForm = () => {
-    this.editAccountSellerForm.reset({
+    this.SellerForm.reset({
       name: this.user?.name,
       email: this.user?.email,
       password: this.user?.password,
@@ -126,9 +142,9 @@ export class EditaccountsellerComponent implements OnInit {
   }
 
   editAccountSeller = async () => {
-    console.log(this.editAccountSellerForm.value);
+    console.log(this.SellerForm.value);
     this.submitted = true;
-    if(this.editAccountSellerForm.invalid){
+    if(this.SellerForm.invalid){
       return;
     }
     //this.userService.login(this.loginForm.value);

@@ -35,7 +35,7 @@ export class UserService {
         try {
             const response = await axios.post<RegistrationResponse>(`${localAPI}/auth/register`, user);
             const { message, success } = response.data
-            console.log(response.data)
+            //console.log(response.data)
             if (success) {
                 this.isRegistered = true;
                 this.showRegistrationError=false;

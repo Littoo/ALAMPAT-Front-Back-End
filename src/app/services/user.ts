@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import axios from 'axios'
 import { User } from '../models/User'
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,48 +16,68 @@ interface getUserResponse {
     providedIn: 'root',
 })
 
-//Not usable for now 
+
 export class AccountService {
     getUserError: string = '';
     userID: string = '607fe491958fa65f08f14d0e';
-    user = new User();
+    isUpdated: boolean = false;
+
+    user: EventEmitter<any> = new EventEmitter();
+    error: EventEmitter<any> = new EventEmitter();
+
     constructor(private router:Router,) { }
 
-    getUserdata=()=>{
+    getUserdata = () =>{
         try {
-            axios.get(`${localAPI}/users/profile/` + this.userID)
+            axios.get<getUserResponse>(`${localAPI}/users/profile/` + this.userID)
             .then(resp => {
-                this.user = resp.data.userData
+                this.user.emit(resp.data.userData)
                 
                 console.log(this.user);
-                return resp.data
+                //return resp.data
             })
             .catch(err => {
                 // Handle Error Here
-                
-                console.error(err);
-                return err
-            });;
-            /*const response = await axios.get(`${localAPI}/users/profile/` + this.userID);
-            const { message, userData, success } = response.data
-            if (success) {
-                console.log(message, userData)
-                this.user = userData 
-                console.log(this.user)
-                return  this.user; 
-                //
-            } else {
-                console.log(message, userData)
-                return this.user
-            }*/
+                this.error.emit(err)
+                console.log(err);
+                //return err
+            });
+            
 
         } catch (error) {
-            
+            this.error.emit(error)
             console.log(error)
             this.getUserError = error
 
-            return error
+            //return error
         }
+    }
+
+    updateUserdata = async (user: User ) => {
+        try {
+            const response = await axios.put<getUserResponse>(`${localAPI}/users/updateAccount/${this.userID}`, user);
+            const { message, success } = response.data
+            //console.log(response.data)
+            if (success) {
+                this.isUpdated = true;
+               
+                console.log("User Registered!")
+                console.log(response.data)
+                //this.router.navigate(['/registration-confirmed'])
+                return this.isUpdated
+                //
+            } else {
+                this.isUpdated = false;
+                
+                console.log(" Update failed: " + response.data)
+                return this.isUpdated 
+            }
+
+        } catch (error) {
+            this.isUpdated = false
+            console.log(error)
+            return this.isUpdated;
+        }  
     }
 
     

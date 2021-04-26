@@ -22,7 +22,7 @@ export class MyaccountbuyerComponent implements OnInit {
     this.accountService.user.subscribe((user)=>{
         this.user = user 
         this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64)
-        console.log("User image: " + JSON.stringify(this.imageSRC))
+        //console.log("User image: " + JSON.stringify(this.imageSRC))
     }, (error) => {
         console.log("Error", error)
     })

@@ -48,7 +48,7 @@ export class EditaccountsellerComponent implements OnInit {
       //sanitizes the URL to be safe to avoid warnings
       this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64)
       
-      console.log("User image: " + JSON.stringify(this.imageSRC))
+      //console.log("User image: " + JSON.stringify(this.imageSRC))
   
     }, (error) => {
       
@@ -86,7 +86,7 @@ export class EditaccountsellerComponent implements OnInit {
         this.string64 = reader.result
         this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.string64);
         
-        console.log("Hello" + reader.result)
+        //console.log("Hello" + reader.result)
         
         this.SellerForm.patchValue({
           profileImage:{
@@ -142,13 +142,5 @@ export class EditaccountsellerComponent implements OnInit {
       });
   }
 
-  editAccountSeller = async () => {
-    console.log(this.SellerForm.value);
-    this.submitted = true;
-    if(this.SellerForm.invalid){
-      return;
-    }
-    //this.userService.login(this.loginForm.value);
-  }
-
+  
 }

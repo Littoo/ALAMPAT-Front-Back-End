@@ -29,7 +29,7 @@ export class EditaccountbuyerComponent implements OnInit {
       this.initForm()
       //replace this when frontend is integrated to backend since it will be saved in one string
       this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64)
-      console.log("User image: " + JSON.stringify(this.imageSRC))
+      //console.log("User image: " + JSON.stringify(this.imageSRC))
   }, (error) => {
       console.log("Error", error)
   })
@@ -64,7 +64,7 @@ export class EditaccountbuyerComponent implements OnInit {
         this.string64 = reader.result
         this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.string64);
         
-        console.log("Hello" + reader.result)
+        //console.log("Hello" + reader.result)
         
         this.BuyerForm.patchValue({
           profileImage:{
@@ -96,7 +96,7 @@ export class EditaccountbuyerComponent implements OnInit {
       }
     }
 
-    console.log("Seller Form Data: " + JSON.stringify(this.BuyerForm.value));
+    //console.log("Buyer Form Data: " + JSON.stringify(this.BuyerForm.value));
     this.submitted = true;  
   }
 

@@ -75,13 +75,13 @@
             <div class="field">
                 <label class="label " >Password</label>
                 <div class="control has-icons-left">
-                    <input class="textarea has-fixed-size" rows="1" type="password" value="{{user?.password}}" readonly>
+                    <input class="textarea has-fixed-size" rows="1" type="password"  maxlength="8" value="{{user?.password}}" readonly/>
                 </div>
             </div>
             <div class="field">
                 <label class="label ">Phone Number</label>
                 <div class="control">
-                    <textarea class="textarea has-fixed-size" rows="1" readonly>{{user?.phoneNumber}}</textarea>
+                    <textarea class="textarea has-fixed-size" rows="1" maxlength ="10"readonly>{{user?.phoneNumber}}</textarea>
                 </div>
             </div>
             <div class="field">

@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import axios from 'axios'
 import { AccountService } from 'src/app/services/account';
-import { User } from '../../models/User'
+
 import { DomSanitizer } from '@angular/platform-browser';
 
 const localAPI = 'http://localhost:3000'

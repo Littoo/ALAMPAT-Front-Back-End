@@ -27,6 +27,8 @@ export class EditaccountbuyerComponent implements OnInit {
   task: AngularFireUploadTask;
   snapshot: Observable<any>;
 
+  prev_img: any;
+
   constructor(private formBuilder: FormBuilder, 
     private cd: ChangeDetectorRef, 
     private domSanitizer: DomSanitizer,
@@ -40,7 +42,8 @@ export class EditaccountbuyerComponent implements OnInit {
 
       this.initForm()
       //replace this when frontend is integrated to backend since it will be saved in one string
-      this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64)
+      this.imageSRC = this.user.profileImage?.imageBase64
+      this.prev_img = this.imageSRC
       //console.log("User image: " + JSON.stringify(this.imageSRC))
   }, (error) => {
       console.log("Error", error)
@@ -103,7 +106,9 @@ export class EditaccountbuyerComponent implements OnInit {
       var userdata = await this.accountService.updateUserdata(this.BuyerForm.value);
       if (userdata === true) {
         this.ngOnInit()
+        this.afStorage.storage.refFromURL(this.prev_img).delete();
         this.accountService.editswitch(false)
+        this.imageSRC = ''
         //this.router.navigate(['/']) back to accounts page
       }
       else{

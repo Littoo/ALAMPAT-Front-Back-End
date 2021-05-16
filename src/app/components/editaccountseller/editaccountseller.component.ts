@@ -7,6 +7,11 @@ import { User } from '../../models/User'
 import { AccountService } from 'src/app/services/account';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from '@angular/fire/storage';
+
+import { Observable, Subscription } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+
 
 const localAPI = 'http://localhost:3000'
 
@@ -27,10 +32,12 @@ export class EditaccountsellerComponent implements OnInit {
   public imageSRC : any
   userID: string = '607fe491958fa65f08f14d0e';
 
+  task: AngularFireUploadTask;
+  snapshot: Observable<any>;
+
   constructor(
-    private router: Router,
-    private formBuilder: FormBuilder, 
-    private cd: ChangeDetectorRef, 
+    private formBuilder: FormBuilder,
+    private afStorage: AngularFireStorage,
     private domSanitizer: DomSanitizer,
     private accountService: AccountService) { 
     
@@ -74,33 +81,35 @@ export class EditaccountsellerComponent implements OnInit {
   get formControls() { return this.SellerForm.controls; }
 
   onClickChangePhoto = (event: Event) => {
-    const reader = new FileReader();
-    const target= event.target as HTMLInputElement;
+    //insert code here to open file explorer
+    const target = event.target as HTMLInputElement
 
-    if(target.files && target.files.length) {
-      
-      const file: File = (target.files as FileList)[0];
-      this.filetype =this.domSanitizer.bypassSecurityTrustUrl(file.type)
-      reader.readAsDataURL(file);
-  
-      reader.onload = () => {
-        this.string64 = reader.result
-        this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.string64);
-        
-        //console.log("Hello" + reader.result)
-        
+    const file: File = (target.files as FileList)[0]
+    //Storage Path
+    const path =  `/Account/${Date.now()}_` + file.name
+    
+    //reference to storage bucket
+    const ref = this.afStorage.ref(path)
+
+    //main task 
+    this.task = this.afStorage.upload(path, file)
+    
+    this.snapshot = this.task.snapshotChanges().pipe(
+      finalize( async() => {
+        this.imageSRC = await ref.getDownloadURL().toPromise()
         this.SellerForm.patchValue({
-          profileImage:{
-          filename: file.name,
-          contentType: file.type,
-          imageBase64: reader.result as string
+          profileImage: {
+            filename: file.name,
+            contentType: file.type,
+            imageBase64: this.imageSRC
           }
-       });
-      
-        // need to run CD since file load runs outside of zone
-        this.cd.markForCheck();
-      };
-    }
+        });
+        
+        
+        console.log("Here: " + JSON.stringify(this.imageSRC) );
+      })
+    )
+
   }
 
   onClickSave = async () => {
@@ -112,6 +121,8 @@ export class EditaccountsellerComponent implements OnInit {
       var userdata = await this.accountService.updateUserdata(this.SellerForm.value);
       if (userdata === true) {
         this.ngOnInit()
+        this.accountService.editswitch(false)
+        //this.openEditAccountSellerModal = false;
         //this.router.navigate(['/']) //back to accounts page
       }
       else {
@@ -124,7 +135,8 @@ export class EditaccountsellerComponent implements OnInit {
   }
 
   onClickExit = () => {
-    this.openEditAccountSellerModal = false;
+    this.accountService.editswitch(false)
+    //this.openEditAccountSellerModal = false;
     this.submitted = false;
     this.initForm()
   }

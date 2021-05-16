@@ -14,6 +14,8 @@ import { HeadersellerComponent } from './components/accounts/seller/headerseller
 import { EditaccountbuyerComponent } from './components/editaccountbuyer/editaccountbuyer.component';
 import { EditaccountsellerComponent } from './components/editaccountseller/editaccountseller.component';
 
+import {AngularFireStorageModule} from '@angular/fire/storage'
+import {AngularFireModule} from '@angular/fire'
 
 @NgModule({
   declarations: [
@@ -33,9 +35,20 @@ import { EditaccountsellerComponent } from './components/editaccountseller/edita
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAYsXEKw9iqkrLxKgItK3_BxS94pWyLY9I",
+      authDomain: "alampat-59bb8.firebaseapp.com",
+      projectId: "alampat-59bb8",
+      storageBucket: "alampat-59bb8.appspot.com",
+      messagingSenderId: "42190675269",
+      appId: "1:42190675269:web:4d4f246a30fb3b380df22c",
+      measurementId: "G-M7VWRJ4WN7"
+    }),
+    AngularFireStorageModule,
   ],
   exports:[
     WelcomeComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

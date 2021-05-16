@@ -29,8 +29,10 @@ export class EditaccountsellerComponent implements OnInit {
   user: any; // = new User;
   string64: any;
   filetype: any;
-  public imageSRC : any
+  imageSRC : any;
   userID: string = '607fe491958fa65f08f14d0e';
+
+  prev_img: any;
 
   task: AngularFireUploadTask;
   snapshot: Observable<any>;
@@ -53,8 +55,8 @@ export class EditaccountsellerComponent implements OnInit {
       this.initForm()
       
       //sanitizes the URL to be safe to avoid warnings
-      this.imageSRC = this.domSanitizer.bypassSecurityTrustUrl(this.user.profileImage?.imageBase64)
-      
+      this.imageSRC = user.profileImage?.imageBase64
+      this.prev_img = this.imageSRC
       //console.log("User image: " + JSON.stringify(this.imageSRC))
   
     }, (error) => {
@@ -94,6 +96,9 @@ export class EditaccountsellerComponent implements OnInit {
     //main task 
     this.task = this.afStorage.upload(path, file)
     
+    //copying the url from the prev image for deleting
+    //this.prev_img = this.imageSRC
+
     this.snapshot = this.task.snapshotChanges().pipe(
       finalize( async() => {
         this.imageSRC = await ref.getDownloadURL().toPromise()
@@ -121,7 +126,9 @@ export class EditaccountsellerComponent implements OnInit {
       var userdata = await this.accountService.updateUserdata(this.SellerForm.value);
       if (userdata === true) {
         this.ngOnInit()
+        this.afStorage.storage.refFromURL(this.prev_img).delete();
         this.accountService.editswitch(false)
+        this.imageSRC = ''
         //this.openEditAccountSellerModal = false;
         //this.router.navigate(['/']) //back to accounts page
       }
